@@ -12,13 +12,15 @@ cmake --build build --config Release
 
 
 ### Linux Vorbereitungen:
+
 sudo apt update
 sudo apt install -y build-essential cmake
 
 cmake -S . -B build
 cmake --build build -j
 
-== C++ Kompilieren:
+#### C++ Kompilieren
+
 g++ -o mainCpp main.cpp -std=c++11
 
 
