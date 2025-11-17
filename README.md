@@ -1,5 +1,7 @@
 # STI_WorkerThread
 
+# Windows
+
 ### Windows Vorbereitungen:
 
 git clone https://github.com/microsoft/vcpkg
@@ -23,7 +25,7 @@ cmake --build build -j
 
 g++ -o mainCpp main.cpp -std=c++11
 
-
+# JAVA
 
 ### JAVA Kompilieren:
 javac Main.java Worker.java
