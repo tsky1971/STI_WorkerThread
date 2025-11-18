@@ -1,6 +1,6 @@
 # STI_WorkerThread
 
-# Windows
+# C/C++
 
 ### Windows Vorbereitungen:
 
