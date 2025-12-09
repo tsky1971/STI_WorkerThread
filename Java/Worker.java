@@ -6,20 +6,29 @@ import java.util.concurrent.ThreadLocalRandom;
 
 class Worker implements Runnable {
 	private final int id;
+	protected long iterations;
 	
-	Worker(int id) {
-		this.id = id;
+	Worker(int _id, long _iterations) {
+		this.id = _id;
+		this.iterations = _iterations;
 	}
 
     @Override
     public void run() {
-		int waitTime = ThreadLocalRandom.current().nextInt(1, 6); // 1..5 Sekunden
-		try {
-			Thread.sleep(waitTime * 1000L);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			return; // vorzeitig beendet
+		// Messung pro Worker
+        long start = System.nanoTime();
+		
+		double tmp = 1.0;
+		for (long j = 0; j < iterations; j++) {
+			tmp *= 1.0000001;  // einfache, aber nicht triviale Rechenoperation
 		}
+		// Damit tmp nicht optimiert wird
+		if (tmp == 0.0) System.out.println("never");
+		  
+		long end = System.nanoTime();
+        double durationSec = (end - start) / 1_000_000_000.0;
+
+        System.out.printf("Thread #%d dauerte: %.3f Sekunden%n", id, durationSec);
 		System.out.println("Thread #" + id + " sagt Hallo!");
 		// danach endet der Thread    
     }

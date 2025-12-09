@@ -1,0 +1,1 @@
+java -jar STI_workterthread.jar
